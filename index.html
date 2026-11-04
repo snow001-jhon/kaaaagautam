@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+
+<title>Market Terminal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100dvh;
+    background:#050b10;
+    color:#eafcff;
+    font-family:Arial,sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,255,.025) 1px,transparent 1px);
+    background-size:35px 35px;
+    pointer-events:none;
+}
+
+.container{
+    width:100%;
+    max-width:560px;
+    padding:20px;
+}
+
+.panel{
+    border:1px solid rgba(0,255,255,.25);
+    background:rgba(5,15,22,.9);
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 0 70px rgba(0,255,255,.08);
+    animation:boot .8s ease;
+}
+
+@keyframes boot{
+    from{
+        opacity:0;
+        transform:scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #18313a;
+    padding-bottom:16px;
+    margin-bottom:25px;
+}
+
+.status{
+    font-size:11px;
+    color:#65f7c1;
+    letter-spacing:1px;
+}
+
+.status:before{
+    content:"●";
+    margin-right:7px;
+}
+
+.logo{
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    object-fit:cover;
+    border:1px solid #20d9ff;
+}
+
+.terminal{
+    color:#20d9ff;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+h1{
+    font-size:36px;
+    line-height:1.1;
+    margin-bottom:12px;
+}
+
+h1 span{
+    color:#20d9ff;
+}
+
+.desc{
+    color:#8198a2;
+    line-height:1.7;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.market-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.market{
+    border:1px solid #17333d;
+    background:#08151c;
+    padding:15px;
+    border-radius:13px;
+}
+
+.market small{
+    color:#5c747e;
+    font-size:10px;
+}
+
+.market strong{
+    display:block;
+    margin-top:6px;
+    color:#65f7c1;
+    font-size:16px;
+}
+
+.join{
+    display:block;
+    text-align:center;
+    padding:17px;
+    border-radius:13px;
+    text-decoration:none;
+    color:#001014;
+    background:#20d9ff;
+    font-weight:800;
+    transition:.25s;
+}
+
+.join:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(32,217,255,.25);
+}
+
+.command{
+    margin-top:15px;
+    font-family:monospace;
+    font-size:11px;
+    color:#47636c;
+    text-align:center;
+}
+
+.agency{
+    position:fixed;
+    bottom:max(10px,env(safe-area-inset-bottom));
+    width:100%;
+    text-align:center;
+    font-size:10px;
+    color:#33464d;
+}
+
+.agency a{
+    color:#52717b;
+    text-decoration:none;
+}
+
+@media(max-width:420px){
+    h1{
+        font-size:30px;
+    }
+
+    .panel{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="panel">
+
+        <div class="top">
+
+            <div>
+                <div class="terminal">MARKET TERMINAL</div>
+                <div class="status">SYSTEM ONLINE</div>
+            </div>
+
+            <img src="logo.png" class="logo" alt="Community Logo">
+
+        </div>
+
+        <h1>Market <span>Inside.</span></h1>
+
+        <p class="desc">
+            Access the Telegram community for market discussions,
+            educational content and regular market updates.
+        </p>
+
+        <div class="market-grid">
+
+            <div class="market">
+                <small>ACCESS</small>
+                <strong>PRIVATE</strong>
+            </div>
+
+            <div class="market">
+                <small>CHANNEL</small>
+                <strong>TELEGRAM</strong>
+            </div>
+
+            <div class="market">
+                <small>UPDATES</small>
+                <strong>REGULAR</strong>
+            </div>
+
+            <div class="market">
+                <small>STATUS</small>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </div>
+
+        <a id="telegramButton" class="join"
+           target="_blank"
+           rel="noopener noreferrer">
+            OPEN TELEGRAM
+        </a>
+
+        <div class="command">
+            > execute /join-community
+        </div>
+
+    </div>
+
+</div>
+
+<div class="agency">
+    Ads managed by
+    <a id="agencyLink" target="_blank" rel="noopener noreferrer">
+        Snow Ads Agency
+    </a>
+</div>
+
+<script>
+
+const TELEGRAM_LINK = "https://t.me/YOUR_CLIENT_TELEGRAM";
+const AGENCY_LINK = "https://YOUR-SNOW-AGENCY-LINK.com";
+
+document.getElementById("telegramButton").href = TELEGRAM_LINK;
+document.getElementById("agencyLink").href = AGENCY_LINK;
+
+</script>
+
+</body>
+</html>
